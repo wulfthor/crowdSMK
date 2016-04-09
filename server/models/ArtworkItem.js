@@ -8,7 +8,7 @@ var ArtworkItemSchema = {
 	DateLatest:String,
 	DateText:String,
 	Url:String,
-	Tags:[usertagitem],
+	Tags:[],
 	Ondisplay:Boolean,
 }
 

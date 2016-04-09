@@ -15,6 +15,7 @@ function ArtworkItemStore(){
 
 	get("api/items")
 	.then((data)=>{
+		console.log("data in store: " + JSON.stringify(data));
 		artworkItems = data;
 		triggerListeners();
 	});
@@ -35,13 +36,22 @@ function ArtworkItemStore(){
 	function addArtworkItem(item){
 		var i = artworkItems.push(item);
 		triggerListeners();
-
 		post("/api/items",item)
 		.then((g)=>{
 			item._id = g._id;
 		})
 		.catch(()=>{
 			artworkItems.splice(i,1);
+		})
+	}
+
+	function addArtworkUserTagItem(item){
+        console.log("aaa "+JSON.stringify(item));
+        triggerListeners();
+
+		post("/api/items/:id/tags",item)
+		.then((g)=>{
+			item.id = g.id;
 		})
 	}
 
@@ -67,6 +77,9 @@ function ArtworkItemStore(){
 			switch(split[1]) {
 				case "add":
 					addArtworkItem(event.payload);
+					break;
+                case "addtag":
+                    addArtworkUserTagItem(event.payload);
 					break;
 				case "delete":
 					removeArtworkItem(event.payload);

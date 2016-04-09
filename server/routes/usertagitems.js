@@ -1,4 +1,4 @@
-
+/*
 module.exports = function(app) {
 
     var UserTagItem = require('./../models/UserTagItem.js');
@@ -60,3 +60,4 @@ module.exports = function(app) {
 	*/
 
 }
+*/

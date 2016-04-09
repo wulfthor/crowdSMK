@@ -4,6 +4,29 @@ var React = require('react/addons');
 var cx = React.addons.classSet;
 
 module.exports = React.createClass({
+
+	getInitialState: function(){
+		return {
+			input:''
+		}
+	},
+	addItem:function(e){
+		e.preventDefault();
+        console.log("ontoact " + JSON.stringify(this.state.input));
+
+		artworkAction.addtag({
+			tags: this.state.input,
+            user: "kurt",
+            id:this.props.item._id
+		});
+
+		this.setState({
+			input:''
+		})
+	},
+	handleInputName:function(e){
+		this.setState({input : e.target.value})
+	},
 	togglePurchased:function(e) {
 		e.preventDefault();
 		if (this.props.item.Ondisplay) {
@@ -22,21 +45,21 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<div className="artwork-item row">
-					<div className="six columns">
-						<h6> {this.props.item.Artistname} </h6>
-						<h6> {this.props.item.Title} </h6>
-						<h6> {this.props.item.DateLatest} </h6>
+					<div className="six columns"><h5>
+						 {this.props.item.Artistname}
+						 {this.props.item._id}
+								{this.props.item.Title}
+									{this.props.item.DateText}
+										{this.props.item.Tags}</h5>
 						<a href={this.props.item.Link}> <img src={this.props.item.Url} /></a>
-
-					</div>
-					<div>
-						<form className="one columns" onsubmit={this.togglePurchased}>
-							<button className={this.props.item.Ondisplay ? "" : "button-primary"}>{this.props.item.Ondisplay ? "Buy" : "Unbuy"}</button>
-						</form>
-					</div>
-					<div>
-						<form className="one columns" onsubmit={this.delete}>
-							<button>&times;</button>
+						<form  onSubmit={this.addItem}>
+							<input
+								type="text"
+								required
+								value={this.state.input}
+								onChange={this.handleInputName}
+							/>
+							<button>Add a new Item to the list</button>
 						</form>
 					</div>
 

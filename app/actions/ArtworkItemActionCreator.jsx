@@ -8,7 +8,6 @@ module.exports = {
 		})
 	},
 	addtag:function(item){
-		console.log("actcr " + JSON.stringify(item));
 		dispatcher.dispatch({
 			type:"artwork-item:addtag",
 			payload:item

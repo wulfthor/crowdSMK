@@ -10,6 +10,7 @@ var dispatcher = {
 	dispatch(payload){
 		console.info('Dispatching...',payload.type);
 		for (var id in listeners){
+			console.log("id " + id);
 			var listener = listeners[id];
 			listener(payload);
 		}

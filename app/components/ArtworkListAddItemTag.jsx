@@ -15,7 +15,7 @@ module.exports = React.createClass({
 		});
 
 		this.setState({
-			input:'kurt'
+			input:''
 		})
 	},
 	handleInputName:function(e){
