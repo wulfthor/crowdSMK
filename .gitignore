@@ -43,7 +43,6 @@ bower_components/
 angular.xcodeproj
 .idea
 *.txt
-util/*
 *.iml
 .agignore
 .lvimrc
