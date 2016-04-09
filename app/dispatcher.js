@@ -8,7 +8,7 @@ var dispatcher = {
 		return id;
 	},
 	dispatch(payload){
-		console.info('Dispatching...',payload.type);
+		console.info('Dispatching...',payload);
 		for (var id in listeners){
 			console.log("id " + id);
 			var listener = listeners[id];

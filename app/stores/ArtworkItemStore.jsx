@@ -57,7 +57,7 @@ function ArtworkItemStore(){
 
 	function setArtworkItemBought(item, isPurchased){
 		var item = artworkItems.find(function(i){return i._id===item._id});
-		item.purchased = isPurchased || false;;
+		item.purchased = isPurchased || false;
 		triggerListeners();
 
 		patch(`api/items/${item._id}`,item);

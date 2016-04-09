@@ -11,7 +11,7 @@ module.exports = function(app){
             doc.forEach(function(item){
                 var tagCollector = [];
                 item.Tags.forEach(function(subitem) {
-                    tagCollector.push(subitem.Tags);
+                    tagCollector.push(subitem.Tags + ",");
                 });
 
                 var tmpObj = {};

@@ -3,14 +3,22 @@
 let dispatcher = require('./dispatcher.js');
 let ArtworkItemList = require('./components/ArtworkItemList.jsx');
 let React = require('react/addons');
-let ArtworkItemStore = require('./stores/ArtworkItemStore.jsx');
+let artworkItemStore = require('./stores/ArtworkItemStore.jsx');
 
-var items = ArtworkItemStore.getArtworkItems();
+var initial = artworkItemStore.getArtworkItems();
 
+/*
 ArtworkItemStore.onChange(()=>{
 	items = ArtworkItemStore.getArtworkItems();
 	render();
 })
+*/
+
+artworkItemStore.onChange(function(items) {
+	initial = items;
+	render();
+})
+
 function render(){
-	React.render(<ArtworkItemList items={items}/>,mount);
+	React.render(<ArtworkItemList items={initial}/>,mount);
 }

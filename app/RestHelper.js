@@ -23,7 +23,7 @@ module.exports = {
 	},
 	post(url,data){
 		return new Promise(function(success,error){
-			console.log("hleper: " + JSON.stringify(url));
+			console.log("helper: " + JSON.stringify(url));
 			$.ajax({
 				url,
 				type:'POST',

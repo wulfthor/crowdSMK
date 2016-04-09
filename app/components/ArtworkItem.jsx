@@ -46,12 +46,11 @@ module.exports = React.createClass({
 			<div>
 				<div className="artwork-item row">
 					<div className="six columns"><h5>
-						 {this.props.item.Artistname}
-						 {this.props.item._id}
-								{this.props.item.Title}
+					{this.props.item.Title}
 									{this.props.item.DateText}
-										{this.props.item.Tags}</h5>
+										</h5>
 						<a href={this.props.item.Link}> <img src={this.props.item.Url} /></a>
+                        <h6>{this.props.item.Tags}</h6>
 						<form  onSubmit={this.addItem}>
 							<input
 								type="text"
